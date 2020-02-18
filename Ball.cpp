@@ -13,11 +13,13 @@ void Ball::draw(sf::RenderWindow &window) {
 
 void Ball::update(sf::RenderWindow &window, long deltatime, Paddle &paddle) {
 
-    if (window.getSize().x < ball->getPosition().x + size * 2 && velocity.x > 0|| ball->getPosition().x < 0 && velocity.x < 0) {
-        velocity.x *= -1;
+    if (window.getSize().x < ball->getPosition().x + size * 2 && velocity.x > 0 ||
+        ball->getPosition().x < 0 && velocity.x < 0) {
+        velocity.x *= -1 * acceleration;
     }
-    if ((ball->getGlobalBounds().intersects(paddle.paddle->getGlobalBounds())) && velocity.y > 0|| ball->getPosition().y < 0 && velocity.y < 0) {
-        velocity.y *= -1;
+    if ((ball->getGlobalBounds().intersects(paddle.paddle->getGlobalBounds())) && velocity.y > 0 ||
+        ball->getPosition().y < 0 && velocity.y < 0) {
+        velocity.y *= -1 * acceleration;
     }
     double delta = deltatime / 100.;
     position.x += velocity.x * delta;
@@ -35,4 +37,8 @@ Ball::Ball(int x, int y) {
 
 bool Ball::GameOver(sf::RenderWindow &window) {
     return window.getSize().y < ball->getPosition().y;
+}
+
+Ball::~Ball() {
+    delete ball;
 }

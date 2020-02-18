@@ -8,6 +8,7 @@ int main()
         game->update();
         game->draw();
     }
+    delete game;
     return 0;
 }
 

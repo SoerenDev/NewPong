@@ -12,16 +12,15 @@
 class Paddle {
 public:
     Paddle(int x, int y);
+    ~Paddle();
     void draw(sf::RenderWindow &window);
     void update(sf::RenderWindow &window, long deltatime);
     sf::RectangleShape *paddle;
 private:
-    sf::Vector2<float> position = sf::Vector2f(10.f,10.f);
+    sf::Vector2<float> position = sf::Vector2f(10.f, 10.f);
     float velocity = 0;
     int height = 20;
     int width = 80;
-
-
 };
 
 

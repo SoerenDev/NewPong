@@ -10,18 +10,20 @@
 #include "Paddle.h"
 
 class Ball {
+
 public:
     Ball(int x, int y);
+    ~Ball();
     void draw(sf::RenderWindow &window);
     void update(sf::RenderWindow &window, long deltatime, Paddle &paddle);
     bool GameOver(sf::RenderWindow &window);
 
 private:
-    sf::Vector2<float> position = sf::Vector2f(10.f,10.f);
+    sf::Vector2<float> position = sf::Vector2f(10.f, 10.f);
     sf::Vector2<float> velocity = sf::Vector2f(30.f, 30.f);
     double size = 20.0;
+    double acceleration = 1.01;
     sf::CircleShape *ball;
-
 };
 
 

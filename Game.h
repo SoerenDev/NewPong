@@ -24,14 +24,17 @@ public:
     void gameOverUpdate();
     void gameOverDraw();
     Game();
+    ~Game();
 private:
-    Ball *ball = new Ball(50,50);
-    Paddle *paddle = new Paddle(500,500);
+    Ball *ball;
+    Paddle *paddle;
     sf::Clock clock;
     long deltatime;
     sf::Time delta;
     enum Gamestate {menu,gameplay,gameover};
-    Gamestate gamestate = gameplay;
+    Gamestate gamestate = menu;
+    sf::Font font;
+    sf::Text text;
 };
 
 

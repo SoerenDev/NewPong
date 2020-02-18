@@ -28,8 +28,12 @@ void Paddle::update(sf::RenderWindow &window, long deltatime) {
         velocity = 0;
     }
 
-    //Movement works Zeit für eine 7 Mate Kollision detection wird nun umgesetzt
+    //Movement works Zeit für eine 7 Mate Kollision detection wird nun umgesetzt???
     double delta = deltatime / 100.;
     position.x += velocity * delta;
     paddle->setPosition(position);
+}
+
+Paddle::~Paddle() {
+    delete paddle;
 }
